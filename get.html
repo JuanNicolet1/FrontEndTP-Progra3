@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+        <header>
+            <ul type="none" id="opciones">
+                <a href="index.html">
+                    <li class="link-header"><span>Get</span></li>
+                </a>
+                <a href="get.html">
+                    <li class="link-header"><span>Get: Id</span></li>
+                </a>
+                <a href="put.html">
+                    <li class="link-header"><span>Put</span></li>
+                </a>
+                <a href="post.html">
+                    <li class="link-header"><span>Post</span></li>
+                </a>
+                <a href="delete.html">
+                    <li class="link-header"><span>Delete</span></li>
+                </a>
+            </ul>
+    </header>
+    <hr>
+    <h1>Listado de Productos</h1>
+    <hr>
+
+    <main id="contenedor-get">
+        <div>
+            <h2>Consultar producto</h2>
+            <form action="" id="getProduct-form">
+                <label for="idProd">Id producto</label>
+                <input type="number" name="idProd" id="idProd" placeholder="Escribe el id">
+                <input type="submit" value="Consultar">
+            </form>
+        </div>
+
+        <div id="getId-container">
+            <ul id="lista-getId"></ul>
+        </div>
+    </main>
+
+    <script src="get_id.js"></script>
+</body>
+</html>
