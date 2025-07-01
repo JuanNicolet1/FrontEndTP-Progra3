@@ -43,8 +43,39 @@
         <div id="getId-container">
             <ul id="lista-getId"></ul>
         </div>
+        <div id="getAll-container">
+            <h2>Todos los productos</h2>
+            <ul id="lista-productos"></ul>
+        </div>
     </main>
 
-    <script src="get_id.js"></script>
+    <script>
+    async function obtenerProductos() {
+        try {
+            const respuesta = await fetch("http://localhost:3002/products");
+            const datos = await respuesta.json();
+            mostrarProductos(datos.payload);
+        } catch (error) {
+            console.error("Error al obtener los productos:", error);
+        }
+    }
+
+    function mostrarProductos(lista) {
+        const ul = document.getElementById("lista-productos");
+        ul.innerHTML = "";
+        lista.forEach(producto => {
+            ul.innerHTML += `
+                <li>
+                    <img src="${producto.image}" alt="" style="max-width: 100px;">
+                    <p>Nombre: ${producto.name} - Precio: ${producto.price}</p>
+                    <p>Categoría: ${producto.category}</p>
+                </li>
+            `;
+        });
+    }
+
+    // Llamar a la función al cargar la página
+    obtenerProductos();
+    </script>
 </body>
 </html>

@@ -38,6 +38,35 @@
         </div>
     </main>
 
-    <script src="get.js"></script>
+    <script>
+    async function obtenerDatasProductos() {
+        try {
+            const respuesta = await fetch("http://localhost:3000/producto");
+            const datos = await respuesta.json();
+            mostrarProductos(datos);
+        } catch (error) {
+            console.error("Error al obtener los productos:", error);
+        }
+    }
+
+    function mostrarProductos(array) {
+        const listaProductos = array.payload;
+        const producto_lista = document.getElementById("lista-productos");
+        let htmlProductos = "";
+
+        listaProductos.forEach(producto => {
+            htmlProductos += `
+            <li class="listado_mostrar">
+                <img src="${producto.Imagen}" alt="">
+                <p>Nombre: ${producto.Nombre} Precio: ${producto.Precio}</p>
+            </li>
+            `;
+        });
+        producto_lista.innerHTML = htmlProductos;
+    }
+
+    // Llamar a la función al cargar la página
+    obtenerDatasProductos();
+    </script>
 </body>
 </html>
