@@ -38,3 +38,15 @@ hr{
   height: 60px;
   object-fit: cover;
 }
+
+#updateProducts-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form input,
+form select{
+    width: 150px;
+}

@@ -50,32 +50,51 @@
     </main>
 
     <script>
-    async function obtenerProductos() {
-        try {
-            const respuesta = await fetch("http://localhost:3002/products");
-            const datos = await respuesta.json();
-            mostrarProductos(datos.payload);
-        } catch (error) {
-            console.error("Error al obtener los productos:", error);
-        }
-    }
+    let get_id = document.getElementById("lista-getId");
+    let get_producto = document.getElementById("getProduct-form");
 
-    function mostrarProductos(lista) {
-        const ul = document.getElementById("lista-productos");
-        ul.innerHTML = "";
-        lista.forEach(producto => {
-            ul.innerHTML += `
-                <li>
-                    <img src="${producto.image}" alt="" style="max-width: 100px;">
-                    <p>Nombre: ${producto.name} - Precio: ${producto.price}</p>
-                    <p>Categoría: ${producto.category}</p>
-                </li>
-            `;
-        });
-    }
+    get_producto.addEventListener("submit", async(event) => {
+    event.preventDefault(); // Evitamos envio por defecto
 
-    // Llamar a la función al cargar la página
-    obtenerProductos();
+    try {
+       let formData = new FormData(event.target);
+       console.log(formData);
+
+       // Transformamos el objeto fromData en un objeto JS normal
+       let data = Object.fromEntries(formData.entries());
+       console.log(data);
+
+       let idProd = data.idProd.trim(); // Se sacan posibles espacios
+       console.log(idProd);
+
+       // Validación basica
+       if(!idProd) {
+        throw new Error("Ingrese un id de producto correcto");
+       }
+       
+       let response = await fetch(`http://localhost:3000/producto/${idProd}`); // Cambia 3000 por 3002
+
+       // Manejamos el error en una posible respuesta no exitosa
+       if(!response.ok){
+        throw new Error("Ingrese un id de producto correcto");
+       }
+       let datos = await response.json();
+       console.log(datos);
+
+       let producto = datos.payload;
+
+       let getProductHtml = `
+       <li class="listado_mostrar">
+                <img src="${producto.image}" alt="">
+                <p>Nombre: ${producto.name} Precio: ${producto.price}</p>
+            </li>
+            `
+       get_id.innerHTML = getProductHtml;     
+       } catch (error){
+        console.log("Error al obtener el producto: ", error);
+        get_id.innerHTML = `${error.message}`;
+       }     
+    })
     </script>
 </body>
 </html>
