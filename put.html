@@ -71,7 +71,7 @@
         throw new Error("Ingrese un id de producto correcto");
        }
 
-       let response = await fetch(`http://localhost:3000/producto/${idProd}`); // Cambia 3000 por 3002
+       let response = await fetch(`http://localhost:3002/products/${idProd}`); // Cambia 3000 por 3002
 
        // Manejamos el error en una posible respuesta no exitosa
        if(!response.ok){
@@ -122,7 +122,7 @@
           <h2>Actualizar producto</h2>
           <form id="updateProducts-form" autocomplete="off">
             <label form= "idProd">Id</label>
-            <input type="number" name="id_producto" id="idProd" value= "${producto.id_producto}", readonly>
+            <input type="number" name="id_producto" id="idProd" value= "${producto.id_producto}" readonly>
 
             <label form= "categoryProd">Categoria</label>
             <select name="category" id="categoryProd" required>
@@ -162,7 +162,7 @@
                 return;
             }
             try{
-                let response = await fetch("http://localhost:3000/producto", { // Cambia 3000 por 3002
+                let response = await fetch(`http://localhost:3002/products/${data.id_producto}`, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json"
