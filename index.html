@@ -8,65 +8,20 @@
 </head>
 <body>
     <header>
-            <ul type="none" id="opciones">
-                <a href="index.html">
-                    <li class="link-header"><span>Get</span></li>
-                </a>
-                <a href="get.html">
-                    <li class="link-header"><span>Get: Id</span></li>
-                </a>
-                <a href="put.html">
-                    <li class="link-header"><span>Put</span></li>
-                </a>
-                <a href="post.html">
-                    <li class="link-header"><span>Post</span></li>
-                </a>
-                <a href="delete.html">
-                    <li class="link-header"><span>Delete</span></li>
-                </a>
-            </ul>
+        <nav>
+            <div class = "logo">
+                <img src="assets/libro.png" alt="logo">
+            </div>
+        </nav>    
     </header>
-    <hr>
-    <h1>Listado de Productos</h1>
-    <hr>
 
-    <main class="contenedor-get">
-        <div class="producto-container">
-           <ul id="lista-productos">
-            
-           </ul>
-        </div>
+    <main>
+        <h2> Bienvenido </h2>
+        <section class="seccion-productos">
+            <h2 class="texto-muestra">Nuestros juegos:</h2>
+            <div class="container-productos"></div>
+         </section>
     </main>
-
-    <script>
-    async function obtenerDatasProductos() {
-        try {
-            const respuesta = await fetch("http://localhost:3002/products"); // Cambia 3000 por 3002
-            const datos = await respuesta.json();
-            mostrarProductos(datos);
-        } catch (error) {
-            console.error("Error al obtener los productos:", error);
-        }
-    }
-
-    function mostrarProductos(array) {
-        const listaProductos = array.payload;
-        const producto_lista = document.getElementById("lista-productos");
-        let htmlProductos = "";
-
-        listaProductos.forEach(producto => {
-            htmlProductos += `
-            <li class="listado_mostrar">
-                <img src="${producto.image}" alt="">
-                <p>Nombre: ${producto.name} Precio: ${producto.price}</p>
-            </li>
-            `;
-        });
-        producto_lista.innerHTML = htmlProductos;
-    }
-
-    // Llamar a la función al cargar la página
-    obtenerDatasProductos();
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>

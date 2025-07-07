@@ -1,52 +1,23 @@
-header{
-    display: flex;
-    justify-content: center;
-}
-
-#opciones{
-    display: flex;
-    justify-content: space-around;
-    border: 2px black solid;
-    width: 50%;
-}
-
-h1{
-    display: flex;
-    justify-content: center;
-}
-
-hr{
-    width: 53%;
-}
-
-.productos-listado {
-    display: flex;
+.container-productos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa;
+  gap: 20px;
 }
 
 .listado_mostrar {
-  display: flex;
-  align-items: center;
-  margin-left: 250px;
-  margin-right: 250px;
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-  gap: 15px;
-}
-
-.listado_mostrar img {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-}
-
-#updateProducts-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: 1px solid black;
+    width: 150px;
 }
 
-form input,
-form select{
-    width: 150px;
+.listado_mostrar img {
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
 }
