@@ -12,7 +12,7 @@ nav{
 }
 
 .logo img {
-  width: 130px;
+  width: 140px;
 }
 
 .logo-carrito img{
@@ -21,24 +21,55 @@ nav{
   padding-top: 30px;
 }
 
+h1{
+    margin-left: 258px;
+}
+
 body {
   background-color: rgb(111, 145, 219);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.carrito-principal {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 #carrito-container {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(111, 145, 219);
+  background-color: rgb(111, 115, 219);
+  width: 500px;
   gap: 20px;
+}
+
+.info-producto {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cantidad-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.precio-container {
+    display: flex;
+    gap: 10px;
 }
 
 .listado_mostrar {
     display: flex;
     align-items: center;
     border: 1px solid black;
-    width: 750px;
+    width: 450px;
+    height: 150px;
     gap: 50px;
 }
 
@@ -56,7 +87,20 @@ body {
     margin-left: auto;
 }
 
+.total-container {
+    display: flex;
+    flex-direction: column;
+    background-color: blueviolet;
+    position: sticky;
+}
 
+.boton-comprar {
+    width: 170px;
+    margin: 20px;
+    background-color: rgb(220, 220, 58);
+    border: rgb(220, 220, 58) solid;
+    cursor: pointer;
+}
 
 
 footer{
@@ -113,6 +157,7 @@ footer{
     justify-content: center;
     background-color: black;
     padding: 10px;
+    height: 12vh;
 }
 
 .copyright{

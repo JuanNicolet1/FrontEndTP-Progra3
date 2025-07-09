@@ -12,11 +12,15 @@ nav{
 }
 
 .logo img {
-  width: 130px;
+  width: 140px;
 }
 
 body {
   background-color: rgb(111, 145, 219);
+}
+
+main {
+    padding: 20px;
 }
 
 .registro-container {
@@ -51,6 +55,8 @@ h2 {
 
 footer{
     background-color: rgb(10, 1, 31);
+    padding-top: 50px;
+    height: 20vh;
 }
 
 .footer-primero{
@@ -103,6 +109,7 @@ footer{
     justify-content: center;
     background-color: black;
     padding: 10px;
+    height: 12vh;
 }
 
 .copyright{

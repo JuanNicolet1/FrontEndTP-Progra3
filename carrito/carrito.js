@@ -11,14 +11,18 @@ function mostrarCarrito() {
             htmlProductos += `
             <li class="listado_mostrar" type="none">
                 <img src="${producto.image}" alt="">
-                <p>Nombre: ${producto.name}</p>
-                <p class="precio">Precio: ${producto.price}</p>
-                <button class="boton-carrito" onclick="borrarCarrito(${producto.id_producto})">Eliminar del carrito</button>
-            </li>
-            <li class="listado_cantidad" type="none">
-                <p>Cantidad: ${producto.cantidad}</p>
-                <button class="boton-carrito" onclick="sumarCantidad(${producto.id_producto})">+</button>
-                <button class="boton-carrito" onclick="borrarCantidad(${producto.id_producto})">-</button>
+                <div class="info-producto">
+                    <p>Nombre: ${producto.name}</p>
+                    <div class="cantidad-container">
+                        <p>Cantidad: ${producto.cantidad}</p>
+                        <button class="boton-carrito" onclick="sumarCantidad(${producto.id_producto})">+</button>
+                        <button class="boton-carrito" onclick="borrarCantidad(${producto.id_producto})">-</button>
+                    <div class="precio-container">
+                        <p class="precio">Precio: ${producto.price}</p>
+                        <button class="boton-carrito" onclick="borrarCarrito(${producto.id_producto})">Eliminar del carrito</button>
+                    </div>
+                    </div>
+                </div>    
             </li>
             `;
         });
@@ -38,10 +42,18 @@ function borrarCarrito(idProd) {
 }
 
 function mostrarTotal() {
+    let listaProducts = localStorage.getItem("carrito");
+    let listaProductos = JSON.parse(listaProducts) || [];
     total = 0;
     sumarTotal();
-    let htmlBoton = ` <p>Total: ${total}</p>
-    <button class="boton-carrito" onclick="eliminarCarrito()">Eliminar todo</button>`;
+    let htmlBoton = ` <div class="total-container">
+    <p>Resumen</p>
+    <button class="boton-comprar"> Continuar con la compra</button>
+    <p>${listaProductos.length} productos</p>
+    <hr>
+    <p>Total: ${total}</p>
+    <button class="boton-carrito" onclick="eliminarCarrito()">Eliminar todo</button>
+    </div>`;
     boton_eliminar.innerHTML = htmlBoton;
 }
 

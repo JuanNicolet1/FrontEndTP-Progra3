@@ -16,7 +16,7 @@ body {
 }
 
 .logo img {
-  width: 130px;
+  width: 140px;
 }
 
 .logo-carrito img{
@@ -111,6 +111,7 @@ footer{
     justify-content: center;
     background-color: black;
     padding: 10px;
+    height: 12vh;
 }
 
 .copyright{
