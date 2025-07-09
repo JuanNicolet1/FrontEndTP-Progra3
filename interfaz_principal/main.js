@@ -6,6 +6,8 @@ let lista_productos = [];
 
 if(nombre){
     bienvenida.textContent = `Bienvenido ${nombre}`;
+} else{
+    window.location.href = "../interfaz_log/log.html";
 }
 
 async function obtenerDatasProductos() {
@@ -39,8 +41,12 @@ function agregarCarrito(id_productos){
     let nuevoProducto = lista_productos.find(producto => producto.id_producto === id_productos); // Busca la fruta a añadir a traved del id
     console.log(nuevoProducto);
     let chequeo = carrito.find(producto2 => producto2.id_producto === id_productos); // Hace lo mismo que el anterior. Este lo hice para evitar que se dupliquen las frutas
-
-    carrito.push(nuevoProducto);
+    if(chequeo) {
+        chequeo.cantidad += 1;
+    } else {
+        nuevoProducto.cantidad = 1;
+        carrito.push(nuevoProducto);
+    }
     console.log(carrito);
     localStorage.setItem("carrito", JSON.stringify(carrito));
 }

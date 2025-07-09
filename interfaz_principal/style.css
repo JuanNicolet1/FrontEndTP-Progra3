@@ -27,11 +27,13 @@ body {
 
 .container-productos {
   background-color: rgb(111, 145, 219);
+  width: 800px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  padding-left: 250px;
+  gap: 50px;
 }
 
 .listado_mostrar {
