@@ -9,6 +9,7 @@ let lista_productos = [];
 let filtroCategoria = document.getElementById("filtro-categoria");
 let filtroPrecioMin = document.getElementById("filtro-precio-min");
 let filtroPrecioMax = document.getElementById("filtro-precio-max");
+let barraBusqueda = document.getElementById("barra-busqueda");
 let botonLimpiarFiltros = document.getElementById("limpiar-filtros");
 
 // Si el usuario está logueado, mostrar bienvenida. Si no, redirigir al login
@@ -21,7 +22,7 @@ if(nombre){
 // --- Obtener productos desde el backend ---
 async function obtenerDatasProductos() {
     try {
-        const respuesta = await fetch("http://localhost:3002/products"); // Cambia 3000 por 3002 si es necesario
+        const respuesta = await fetch("http://localhost:3000/products"); // Cambia 3000 por 3002 si es necesario
         const datos = await respuesta.json();
         lista_productos = datos.payload;
         mostrarProductos(lista_productos);
@@ -98,6 +99,13 @@ function mostrarProductos(listaProductos) {
     }
     productoContainer.innerHTML = htmlProductos;
 }
+
+barraBusqueda.addEventListener("keyup", function(){ // addEventListener escucha el click
+    let valorInput = barraBusqueda.value.toLowerCase(); // Se obtiene lo que el usuario escribe y los transforma a minusculas
+    console.log(valorInput);
+    let juegosFiltradas = lista_productos.filter(producto => producto.name.toLowerCase().includes(valorInput));
+    mostrarProductos(juegosFiltradas);
+});
 
 // --- Agregar producto al carrito y guardar en localStorage ---
 function agregarCarrito(id_productos){

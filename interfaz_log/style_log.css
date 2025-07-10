@@ -1,18 +1,44 @@
-header{
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fondo principal con gradiente */
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header con gradiente y sombra */
+header {
     width: 100%;
     height: 130px;
-    background-color: rgb(29, 75, 176);
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
 }
 
-nav{
+/* Navegación principal */
+nav {
     display: flex;
     width: 100%;
+    height: 100%;
     justify-content: space-between;
     align-items: center;
+    padding: 0 50px;
 }
 
+/* Logo principal con efectos hover */
 .logo img {
-  width: 140px;
+    width: 140px;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
 }
 
 body {
@@ -53,65 +79,101 @@ h2 {
 
 
 
-footer{
-    background-color: rgb(10, 1, 31);
-    padding-top: 50px;
-    height: 20vh;
+footer {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    margin-top: 50px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
 }
 
-.footer-primero{
+/* Contenedor principal del footer */
+.footer-primero {
     display: flex;
     justify-content: space-between;
+    padding: 40px 50px;
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
-.redes, .formulario, .contactos{
-    color: antiquewhite;
+/* Secciones del footer */
+.redes, .formulario, .contactos {
+    color: white;
+    flex: 1;
+    min-width: 250px;
 }
 
-.redes, .contactos{
-    margin-left: 145px;
-    margin-right: 145px;
-}
-
-.redes-container{
+/* Contenedor de redes sociales */
+.redes-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: 15px;
 }
 
-.logos{
+.redes-container span {
+    font-weight: 600;
+    font-size: 16px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Lista de iconos de redes sociales */
+.logos {
     display: flex;
-    justify-content: flex-start;
-    margin: 0px;
+    gap: 15px;
+    list-style: none;
 }
 
-.ig{
-    width: 50px;
-    margin-top: 8px;
-    object-fit: contain;
+/* Iconos de redes sociales más pequeños */
+.logos img {
+    width: 25px; /* Reducido de ~50px a 25px */
+    height: 25px;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
 }
 
-.facebook{
-    width: 32px;
-    margin-right: 5px;
-    margin-top: 10px;
-    object-fit: contain;
+.logos img:hover {
+    transform: scale(1.2);
 }
 
-.twitter{
-    width: 44px;
-    margin-top: 5px;
-    object-fit: contain;
-}
-
-.footer-segundo{
+/* Sección inferior del footer */
+.footer-segundo {
     display: flex;
     justify-content: center;
-    background-color: black;
-    padding: 10px;
-    height: 12vh;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.copyright{
-    color:antiquewhite;
+/* Texto de copyright */
+.copyright {
+    color: white;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Diseño responsive para dispositivos móviles */
+@media (max-width: 768px) {
+    nav {
+        padding: 0 20px;
+    }
+    
+    .filtros-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .filtro-categoria, .filtro-precio {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .container-productos {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 20px;
+    }
+    
+    .footer-primero {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 }

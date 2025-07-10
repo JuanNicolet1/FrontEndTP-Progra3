@@ -19,7 +19,7 @@ function mostrarCarrito() {
                         <button class="boton-carrito" onclick="borrarCantidad(${producto.id_producto})">-</button>
                     <div class="precio-container">
                         <p class="precio">Precio: ${producto.price}</p>
-                        <button class="boton-carrito" onclick="borrarCarrito(${producto.id_producto})">Eliminar del carrito</button>
+                        <button class="boton-eliminar" onclick="borrarCarrito(${producto.id_producto})">Eliminar del carrito</button>
                     </div>
                     </div>
                 </div>    
@@ -52,7 +52,7 @@ function mostrarTotal() {
     <p>${listaProductos.length} productos</p>
     <hr>
     <p>Total: ${total}</p>
-    <button class="boton-carrito" onclick="eliminarCarrito()">Eliminar todo</button>
+    <button class="boton-eliminar-todo" onclick="eliminarCarrito()">Eliminar todo</button>
     </div>`;
     boton_eliminar.innerHTML = htmlBoton;
 }

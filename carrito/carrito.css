@@ -1,24 +1,56 @@
-header{
+/* Reset básico y configuración general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fondo principal con gradiente */
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header con gradiente y sombra */
+header {
     width: 100%;
     height: 130px;
-    background-color: rgb(29, 75, 176);
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
 }
 
-nav{
+/* Navegación principal */
+nav {
     display: flex;
     width: 100%;
+    height: 100%;
     justify-content: space-between;
     align-items: center;
+    padding: 0 50px;
 }
 
+/* Logo principal con efectos hover */
 .logo img {
-  width: 140px;
+    width: 140px;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
 }
 
-.logo-carrito img{
-  width: 50px;
-  padding-right: 60px;
-  padding-top: 30px;
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+/* Icono del carrito con efectos */
+.logo-carrito img {
+    width: 50px;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.logo-carrito img:hover {
+    transform: scale(1.1);
 }
 
 h1{
@@ -37,14 +69,16 @@ body {
 }
 
 #carrito-container {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(111, 115, 219);
-  width: 500px;
-  gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #7f58db 0%, #6c2ea3 100%);
+    gap: 10px;
+    max-width: 1200px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 .info-producto {
@@ -84,82 +118,241 @@ body {
 }
 
 .boton-carrito {
-    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #692c85 0%, #271b75 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    width: 30px;
+    height: 20px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.boton-carrito:hover {
+    background: linear-gradient(135deg, #a84fd1 0%, #312486 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.boton-carrito:active {
+    transform: translateY(-1px);
+}
+
+.boton-eliminar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #692c85 0%, #271b75 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    width: 84px;
+    height: 60px;
+    font-size: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.boton-eliminar:hover {
+    background: linear-gradient(135deg, #a84fd1 0%, #312486 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.boton-eliminar:active {
+    transform: translateY(-1px);
 }
 
 .total-container {
     display: flex;
     flex-direction: column;
-    background-color: blueviolet;
-    position: sticky;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #7347d8 0%, #3b1561 100%);
+    padding: 30px;
+    gap: 10px;
+    margin: 30px auto;
+    border-radius: 20px;
+    max-width: 1200px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 .boton-comprar {
-    width: 170px;
-    margin: 20px;
-    background-color: rgb(220, 220, 58);
-    border: rgb(220, 220, 58) solid;
+    background: linear-gradient(135deg, #c9e033 0%, #7f9d13 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
     cursor: pointer;
+    font-weight: 600;
+    width: 104px;
+    height: 60px;
+    font-size: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-
-footer{
-    background-color: rgb(10, 1, 31);
+.boton-eliminar-todo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #e03372 0%, #920746 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    width: 104px;
+    height: 60px;
+    font-size: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.footer-primero{
+.boton-eliminar-todo:hover {
+    background: linear-gradient(135deg, #ec6596 0%, #bd2168 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.boton-eliminar-todo:active {
+    transform: translateY(-1px);
+}
+
+.boton-menu {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #e03372 0%, #920746 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-left: 500px;
+    margin-top: 20px;
+    width: 104px;
+    height: 60px;
+    font-size: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+footer {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    margin-top: 50px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Contenedor principal del footer */
+.footer-primero {
     display: flex;
     justify-content: space-between;
+    padding: 40px 50px;
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
-.redes, .formulario, .contactos{
-    color: antiquewhite;
+/* Secciones del footer */
+.redes, .formulario, .contactos {
+    color: white;
+    flex: 1;
+    min-width: 250px;
 }
 
-.redes, .contactos{
-    margin-left: 145px;
-    margin-right: 145px;
-}
-
-.redes-container{
+/* Contenedor de redes sociales */
+.redes-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: 15px;
 }
 
-.logos{
+.redes-container span {
+    font-weight: 600;
+    font-size: 16px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Lista de iconos de redes sociales */
+.logos {
     display: flex;
-    justify-content: flex-start;
-    margin: 0px;
+    gap: 15px;
+    list-style: none;
 }
 
-.ig{
-    width: 50px;
-    margin-top: 8px;
-    object-fit: contain;
+/* Iconos de redes sociales más pequeños */
+.logos img {
+    width: 25px; /* Reducido de ~50px a 25px */
+    height: 25px;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
 }
 
-.facebook{
-    width: 32px;
-    margin-right: 5px;
-    margin-top: 10px;
-    object-fit: contain;
+.logos img:hover {
+    transform: scale(1.2);
 }
 
-.twitter{
-    width: 44px;
-    margin-top: 5px;
-    object-fit: contain;
-}
-
-.footer-segundo{
+/* Sección inferior del footer */
+.footer-segundo {
     display: flex;
     justify-content: center;
-    background-color: black;
-    padding: 10px;
-    height: 12vh;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.copyright{
-    color:antiquewhite;
+/* Texto de copyright */
+.copyright {
+    color: white;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Diseño responsive para dispositivos móviles */
+@media (max-width: 768px) {
+    nav {
+        padding: 0 20px;
+    }
+    
+    .filtros-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .filtro-categoria, .filtro-precio {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .container-productos {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 20px;
+    }
+    
+    .footer-primero {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 }
