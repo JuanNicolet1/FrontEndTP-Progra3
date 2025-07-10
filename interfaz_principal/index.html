@@ -8,21 +8,51 @@
     <link rel="icon" href="../assets/favicon.ico">
 </head>
 <body>
+    <!-- Header y barra de navegación principal -->
     <header>
         <nav>
             <div class = "logo">
                 <img src="../assets/logo.png" alt="logo">
             </div>
 
+            <!-- Barra de búsqueda (no funcional) -->
             <form action="">
                 <input type="text" name="" id="" placeholder="Buscar">
             </form>
+            <!-- Enlace al carrito de compras -->
             <a href="../carrito/carrito.html" class="logo-carrito"> <img src="../assets/carrito-de-compras.png" alt=""></a>
         </nav>
     </header>
 
     <main>
+        <!-- Mensaje de bienvenida personalizado -->
         <h2 id="texto-bienvenida">  </h2>
+        
+        <!-- Sección de filtros para productos -->
+        <section class="seccion-filtros">
+            <h3>Filtros</h3>
+            <div class="filtros-container">
+                <!-- Filtro por categoría -->
+                <div class="filtro-categoria">
+                    <label for="filtro-categoria">Categoría:</label>
+                    <select id="filtro-categoria">
+                        <option value="">Todas las categorías</option>
+                    </select>
+                </div>
+                <!-- Filtros por precio mínimo y máximo -->
+                <div class="filtro-precio">
+                    <label for="filtro-precio-min">Precio mínimo:</label>
+                    <input type="number" id="filtro-precio-min" placeholder="0" min="0">
+                    
+                    <label for="filtro-precio-max">Precio máximo:</label>
+                    <input type="number" id="filtro-precio-max" placeholder="999999" min="0">
+                </div>
+                <!-- Botón para limpiar filtros -->
+                <button id="limpiar-filtros" class="boton-filtros">Limpiar Filtros</button>
+            </div>
+        </section>
+        
+        <!-- Sección principal de productos -->
         <section class="seccion-productos">
             <h2 class="texto-muestra">Nuestros juegos:</h2>
             <div class="container-productos"></div>
@@ -31,6 +61,7 @@
     <script src="main.js"></script>
 </body>
 
+<!-- Footer con información de contacto y redes sociales -->
 <footer> 
         <div class = "footer-primero">
            <section class="redes">
@@ -44,6 +75,7 @@
             </div>   
             </section>
 
+            <!-- Formulario de contacto simple -->
             <section class="formulario">
               <form action="">
               <legend class="leyenda">Contactate con nosotros:</legend>
@@ -52,6 +84,7 @@
               </form>
            </section>
 
+           <!-- Información de los integrantes -->
            <section class="contactos">
             <ul type="none">
                 <li>Integrantes:</li>

@@ -1,119 +1,363 @@
-header{
+/* Reset básico y configuración general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fondo principal con gradiente */
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header con gradiente y sombra */
+header {
     width: 100%;
     height: 130px;
-    background-color: rgb(29, 75, 176);
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
 }
 
-nav{
+/* Navegación principal */
+nav {
     display: flex;
     width: 100%;
+    height: 100%;
     justify-content: space-between;
     align-items: center;
+    padding: 0 50px;
 }
 
-body {
-  background-color: rgb(111, 145, 219);
-}
-
+/* Logo principal con efectos hover */
 .logo img {
-  width: 140px;
+    width: 140px;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
 }
 
-.logo-carrito img{
-  width: 50px;
-  padding-right: 60px;
-  padding-top: 30px;
+.logo img:hover {
+    transform: scale(1.05);
 }
 
+/* Icono del carrito con efectos */
+.logo-carrito img {
+    width: 50px;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.logo-carrito img:hover {
+    transform: scale(1.1);
+}
+
+/* Sección de filtros con diseño glassmorphism */
+.seccion-filtros {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 30px;
+    margin: 30px auto;
+    border-radius: 20px;
+    max-width: 1200px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+/* Título de la sección de filtros */
+.seccion-filtros h3 {
+    color: white;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Contenedor de filtros con flexbox */
+.filtros-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* Estilos para filtros individuales */
+.filtro-categoria, .filtro-precio {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 200px;
+}
+
+/* Labels de los filtros */
+.filtro-categoria label, .filtro-precio label {
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.5px;
+}
+
+/* Inputs y selects de filtros con efectos focus */
+.filtro-categoria select, .filtro-precio input {
+    padding: 12px 15px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.filtro-categoria select:focus, .filtro-precio input:focus {
+    outline: none;
+    border-color: #4CAF50;
+    background: white;
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Botón de limpiar filtros con gradiente */
+.boton-filtros {
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.boton-filtros:hover {
+    background: linear-gradient(135deg, #45a049 0%, #4CAF50 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.boton-filtros:active {
+    transform: translateY(-1px);
+}
+
+/* Contenedor principal de productos */
+.seccion-productos {
+    margin: 40px auto;
+    max-width: 1400px;
+    padding: 0 20px;
+}
+
+/* Título de la sección de productos */
+.texto-muestra {
+    color: white;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Grid de productos responsive */
 .container-productos {
-  background-color: rgb(111, 145, 219);
-  width: 800px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding-left: 250px;
-  gap: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 30px;
+    justify-items: center;
+    padding: 20px 0;
 }
 
+/* Tarjetas de productos individuales */
 .listado_mostrar {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    border: 1px solid black;
-    background-color: rgb(33, 53, 100);
-    width: 150px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    width: 100%;
+    max-width: 220px;
+    padding: 20px;
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    min-height: 350px;
 }
 
+/* Efecto hover en tarjetas de productos */
+.listado_mostrar:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Imágenes de productos */
 .listado_mostrar img {
-    width: 100px;
-    height: 150px;
+    width: 120px;
+    height: 160px;
     object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
 }
 
-
-
-
-
-
-footer{
-    background-color: rgb(10, 1, 31);
+.listado_mostrar:hover img {
+    transform: scale(1.05);
 }
 
-.footer-primero{
+/* Texto de información de productos */
+.listado_mostrar p {
+    margin: 8px 0;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Botón de agregar al carrito */
+.boton-carrito {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: 100%;
+}
+
+.boton-carrito:hover {
+    background: linear-gradient(135deg, #ee5a52 0%, #ff6b6b 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.boton-carrito:active {
+    transform: translateY(0);
+}
+
+/* Mensaje cuando no hay productos */
+.container-productos p {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+/* Footer con gradiente */
+footer {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    margin-top: 50px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Contenedor principal del footer */
+.footer-primero {
     display: flex;
     justify-content: space-between;
+    padding: 40px 50px;
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
-.redes, .formulario, .contactos{
-    color: antiquewhite;
+/* Secciones del footer */
+.redes, .formulario, .contactos {
+    color: white;
+    flex: 1;
+    min-width: 250px;
 }
 
-.redes, .contactos{
-    margin-left: 145px;
-    margin-right: 145px;
-}
-
-.redes-container{
+/* Contenedor de redes sociales */
+.redes-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: 15px;
 }
 
-.logos{
+.redes-container span {
+    font-weight: 600;
+    font-size: 16px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Lista de iconos de redes sociales */
+.logos {
     display: flex;
-    justify-content: flex-start;
-    margin: 0px;
+    gap: 15px;
+    list-style: none;
 }
 
-.ig{
-    width: 50px;
-    margin-top: 8px;
-    object-fit: contain;
+/* Iconos de redes sociales más pequeños */
+.logos img {
+    width: 25px; /* Reducido de ~50px a 25px */
+    height: 25px;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
 }
 
-.facebook{
-    width: 32px;
-    margin-right: 5px;
-    margin-top: 10px;
-    object-fit: contain;
+.logos img:hover {
+    transform: scale(1.2);
 }
 
-.twitter{
-    width: 44px;
-    margin-top: 5px;
-    object-fit: contain;
-}
-
-.footer-segundo{
+/* Sección inferior del footer */
+.footer-segundo {
     display: flex;
     justify-content: center;
-    background-color: black;
-    padding: 10px;
-    height: 12vh;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.copyright{
-    color:antiquewhite;
+/* Texto de copyright */
+.copyright {
+    color: white;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Diseño responsive para dispositivos móviles */
+@media (max-width: 768px) {
+    nav {
+        padding: 0 20px;
+    }
+    
+    .filtros-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .filtro-categoria, .filtro-precio {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .container-productos {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 20px;
+    }
+    
+    .footer-primero {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 }
