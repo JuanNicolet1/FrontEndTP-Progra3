@@ -2,7 +2,7 @@ let productoContainer = document.querySelector(".container-productos");
 
 async function obtenerDatasProductos() {
         try {
-            const respuesta = await fetch("http://localhost:3000/products"); // Cambia 3000 por 3002
+            const respuesta = await fetch("http://localhost:3002/products"); // Cambia 3000 por 3002
             const datos = await respuesta.json();
             mostrarProductos(datos);
         } catch (error) {
