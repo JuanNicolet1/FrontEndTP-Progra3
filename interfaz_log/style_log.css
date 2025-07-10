@@ -1,0 +1,117 @@
+header{
+    width: 100%;
+    height: 130px;
+    background-color: rgb(29, 75, 176);
+}
+
+nav{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+  width: 140px;
+}
+
+body {
+  background-color: rgb(111, 145, 219);
+}
+
+main {
+    padding: 20px;
+}
+
+.registro-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+h1 {
+    color: rgb(11, 103, 79);
+}
+
+h2 {
+    color: rgb(150, 197, 9);
+}
+
+.formulario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+
+
+
+
+
+
+
+footer{
+    background-color: rgb(10, 1, 31);
+    padding-top: 50px;
+    height: 20vh;
+}
+
+.footer-primero{
+    display: flex;
+    justify-content: space-between;
+}
+
+.redes, .formulario, .contactos{
+    color: antiquewhite;
+}
+
+.redes, .contactos{
+    margin-left: 145px;
+    margin-right: 145px;
+}
+
+.redes-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.logos{
+    display: flex;
+    justify-content: flex-start;
+    margin: 0px;
+}
+
+.ig{
+    width: 50px;
+    margin-top: 8px;
+    object-fit: contain;
+}
+
+.facebook{
+    width: 32px;
+    margin-right: 5px;
+    margin-top: 10px;
+    object-fit: contain;
+}
+
+.twitter{
+    width: 44px;
+    margin-top: 5px;
+    object-fit: contain;
+}
+
+.footer-segundo{
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    padding: 10px;
+    height: 12vh;
+}
+
+.copyright{
+    color:antiquewhite;
+}
